@@ -1,3 +1,9 @@
+# utilities data
+.DS_store
+.idea
+.vscode
+
+
 # Compiled Lua sources
 luac.out
 

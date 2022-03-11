@@ -1,0 +1,16 @@
+#!/usr/bin/env zsh
+
+filename="${1%.*}"
+
+# clang++ -std=c++17 -o "$filename" "$filename.cpp"
+
+clang++ -o "$filename" "$filename.cpp" \
+	-std=c++17 \
+    -ggdb \
+	-Wall -Wextra -Wformat=2 -Wshadow -Wfloat-equal -Wconversion \
+	-Wcast-qual -Wcast-align \
+	-fsanitize=address,bounds,undefined \
+	-pedantic \
+	-D LOCAL 
+
+echo $filename
