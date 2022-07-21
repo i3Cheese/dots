@@ -1,3 +1,2 @@
-* .clang_format
-* .config/nvim/ 
-* install treesitier python cpp, pyright, and others
+- [x] .config/nvim/ 
+- [x] install treesitier python cpp, pyright, and others

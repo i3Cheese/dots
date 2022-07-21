@@ -1,5 +1,6 @@
 # homebrew packages to PATH
-export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+addToPathOnce "/opt/homebrew/opt/llvm/bin"
+addToPathOnce "/opt/homebrew/opt/identify/bin"
 
 
 # Path to your oh-my-zsh installation.
@@ -87,6 +88,12 @@ fi
 #
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# pyenv python virtualenvs
+export PYENV_ROOT="$HOME/.pyenv"
+command -v "pyenv >/dev/null" || addToPathOnce "$PYENV_ROOT/bin"
+doOnce eval "$(pyenv init -)"
+alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/Users/i3cheese/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -96,10 +103,26 @@ else
     if [ -f "/Users/i3cheese/miniforge3/etc/profile.d/conda.sh" ]; then
         . "/Users/i3cheese/miniforge3/etc/profile.d/conda.sh"
     else
-        export PATH="/Users/i3cheese/miniforge3/bin:$PATH"
+        addToPathOnce "/Users/i3cheese/miniforge3/bin"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
 
 autoload -Uz compinit && compinit
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
+# kitty
+alias ssh="kitty +kitten ssh"
+
+# custom aliases
+function mkcd () {
+  mkdir -p -- "$1" && cd -P -- "$1"
+}
+
+
+# NNN config
+export NNN_PLUG="x:!chmod +x $nnn;p:preview-tui"
+export NNN_FIFO="/tmp/nnn.fifo"
