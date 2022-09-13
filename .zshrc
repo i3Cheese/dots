@@ -4,7 +4,7 @@ addToPathOnce "/opt/homebrew/opt/identify/bin"
 
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/i3cheese/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 
 ZSH_THEME="candy"
@@ -124,5 +124,5 @@ function mkcd () {
 
 
 # NNN config
-export NNN_PLUG="x:!chmod +x $nnn;p:preview-tui"
+export NNN_PLUG="x:!chmod +x $nnn;p:preview-tui;t:tex-new"
 export NNN_FIFO="/tmp/nnn.fifo"
