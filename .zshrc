@@ -1,7 +1,16 @@
-# homebrew packages to PATH
-addToPathOnce "/opt/homebrew/opt/llvm/bin"
-addToPathOnce "/opt/homebrew/opt/identify/bin"
-
+function addToPath {
+    export PATH="$1:$PATH"
+}
+function doOnce {
+    if [ "$SHLVL" = 1 ]; then
+        sh -c "${@:1}"
+    fi
+}
+function addToPathOnce {
+    if [ "$SHLVL" = 1 ]; then
+        export PATH="$1:$PATH"
+    fi
+}
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -16,11 +25,11 @@ ZSH_THEME="candy"
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
+zstyle ':omz:update' mode disabled  # disable automatic updates
 # zstyle ':omz:update' mode auto      # update automatically without asking
-zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
-zstyle ':omz:update' frequency 13
+# zstyle ':omz:update' frequency 13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
@@ -61,7 +70,7 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git fzf-zsh-plugin fancy-ctrl-z)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -124,5 +133,13 @@ function mkcd () {
 
 
 # NNN config
-export NNN_PLUG="x:!chmod +x $nnn;p:preview-tui;t:tex-new"
+export NNN_PLUG="x:!chmod +x $nnn;p:preview-tui;t:tex-new;u:upload"
 export NNN_FIFO="/tmp/nnn.fifo"
+#
+# # homebrew packages to PATH
+# addToPath "/opt/homebrew/opt/llvm/bin"
+# addToPath "/opt/homebrew/opt/identify/bin"
+
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+
+alias cmake_p='cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -B ./build .'

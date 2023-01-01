@@ -1,0 +1,115 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage[russian, english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{subfiles}
+\usepackage{ucs}
+\usepackage{textcomp}
+\usepackage{array}
+\usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage[margin=1.5cm]{geometry}
+\usepackage{authblk}
+\usepackage{tikz}
+\usepackage{icomma}
+\usepackage{gensymb}
+
+% Всякие мат штуки дополнительные
+
+\newcommand{\F}{\mathbb{F}}
+\renewcommand{\C}{\mathbb{C}}
+\newcommand{\N} {\mathbb{N}}
+\newcommand{\Z} {\mathbb{Z}}
+\newcommand{\R} {\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\ord} {\mathop{\rm ord}}
+\newcommand{\Ima}{\mathop{\rm Im}}
+\newcommand{\Rea}{\mathop{\rm Re}}
+\newcommand{\rk}{\mathop{\rm rk}}
+\newcommand{\arccosh}{\mathop{\rm arccosh}}
+\newcommand{\lker}{\mathop{\rm lker}}
+\newcommand{\rker}{\mathop{\rm rker}}
+\newcommand{\tr}{\mathop{\rm tr}}
+\newcommand{\St}{\mathop{\rm St}}
+\newcommand{\Mat}{\mathop{\rm Mat}}
+\newcommand{\grad}{\mathop{\rm grad}}
+\newcommand{\XOR}{\oplus}
+\newcommand{\OR}{\vee}
+\newcommand{\AND}{\wedge}
+\DeclareMathOperator{\spec}{spec}
+\DeclareMathOperator{\sign}{sign}
+\makeatletter
+\newcommand{\xRightarrow}[2][]{\ext@arrow 0359\Rightarrowfill@{#1}{#2}}
+\newcommand{\xLeftrightarrow}[2][]{\ext@arrow 0359\Leftrightarrowfill@{#1}{#2}}
+\makeatother
+
+% Всякое для ускорения
+\newcommand{\compl}[1]{e^{i#1}}
+\renewcommand{\r}{\right}
+\renewcommand{\l}{\left}
+\newcommand{\Set}[1]{\{#1\}}
+\newcommand{\Sum}[2]{\overset{#2}{\underset{#1}{\sum}}}
+\newcommand{\Lim}[2]{\lim\limits_{#1 \rightarrow #2}}
+\newcommand{\p}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\Floor}[1]{\lfloor #1 \rfloor}
+\newcommand{\Ceil}[1]{\lceil #1 \rceil}
+
+\newcommand{\SL}[2]{
+    \left(
+    \begin{matrix}
+        #1
+    \end{matrix}
+    \right\rvert
+    \left.
+    \begin{matrix}
+        #2
+    \end{matrix}
+    \right)
+}
+
+% Заголовки
+\newcommand{\task}[1] {\noindent \textbf{Задача #1.} \hfill}
+\newcommand{\note}[1] {\noindent \textbf{Примечание #1.} \hfill}
+\newtheorem{lemma}{Лемма}
+
+% Пространтсва для задач
+\newenvironment{proof}[1][Доказательство]{%
+	\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1:}]
+		\item \hspace{15pt}
+}{
+	$ \hfill\blacksquare $
+	\end{trivlist}
+	\hfill\break
+}
+\newenvironment{solution}[1][Решение]{%
+	\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1:}]
+		\item \hspace{15pt}
+}{
+	\end{trivlist}
+}
+
+\newenvironment{answer}[1][Ответ]{%
+	\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1:}] \hskip \labelsep
+}{
+	\end{trivlist}
+    \hfill
+}
+
+% Голова
+\title{Предмет \\
+	\large Домашнее задание}
+\date{}
+\author{Даниил Сотников}
+\affil{БПМИ222-1}
+\begin{document}
+\maketitle 
+
+% paste here
+
+\end{document}

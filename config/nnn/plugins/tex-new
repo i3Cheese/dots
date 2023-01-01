@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+read name
+
+mkdir "$name"
+cd "$name"
+cp ~/dots/templates/template.tex "$name.tex"
+nvim "$name.tex"
