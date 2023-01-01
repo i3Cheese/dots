@@ -15,6 +15,9 @@ function addToPathOnce {
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+export SHELL=/usr/bin/zsh
+
+alias docker-compose="docker compose"
 
 ZSH_THEME="candy"
 # Uncomment the following line to use case-sensitive completion.
@@ -98,10 +101,12 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # pyenv python virtualenvs
-export PYENV_ROOT="$HOME/.pyenv"
-command -v "pyenv >/dev/null" || addToPathOnce "$PYENV_ROOT/bin"
-doOnce eval "$(pyenv init -)"
-alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
+if [ -d $HOME/.pyenv ]; then
+    export PYENV_ROOT="$HOME/.pyenv"
+    command -v "pyenv >/dev/null" || addToPathOnce "$PYENV_ROOT/bin"
+    doOnce eval "$(pyenv init -)"
+    alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
+fi
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
