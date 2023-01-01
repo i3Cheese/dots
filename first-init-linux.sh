@@ -11,8 +11,4 @@ git clone git@github.com:i3Cheese/dots.git
 ~/dots/build/nvim.sh
 ~/dots/build/nnn.sh
 
-
-sudo apt-get install --yes \
-    clang \
-    clangd
 sudo apt-get install ripgrep
