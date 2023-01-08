@@ -73,7 +73,7 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git fzf-zsh-plugin fancy-ctrl-z)
+plugins=(git fzf fancy-ctrl-z sudo colored-man-pages copypath)
 
 source $ZSH/oh-my-zsh.sh
 
