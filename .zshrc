@@ -15,8 +15,6 @@ function addToPathOnce {
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-export SHELL=/usr/bin/zsh
-
 alias docker-compose="docker compose"
 
 ZSH_THEME="candy"
