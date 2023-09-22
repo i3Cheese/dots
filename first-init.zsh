@@ -16,6 +16,7 @@ ln -s ~/dots/.tmux.conf ~/
 brew install neovim
 brew install git 
 brew install gfold
+brew install diff-so-fancy
 
 # utils for nvim
 brew install rm

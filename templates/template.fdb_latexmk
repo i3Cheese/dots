@@ -1,12 +1,11 @@
 # Fdb version 3
-["pdflatex"] 1669155936 "/Users/i3cheese/dots/templates/template.tex" "template.pdf" "template" 1669155936
+["pdflatex"] 1681649444 "/Users/i3cheese/dots/templates/template.tex" "template.pdf" "template" 1681649444
   "/Users/i3cheese/Library/texlive/2022basic/texmf-var/fonts/pk/ljfour/lh/lh-t2a/larm1200.600pk" 1662627662 27004 d1105c2b03945b824fd293c265f9fe19 ""
   "/Users/i3cheese/Library/texlive/2022basic/texmf-var/fonts/pk/ljfour/lh/lh-t2a/larm1440.600pk" 1662627663 32576 a3d2b49c593542a994bbd9e6236bbce4 ""
-  "/Users/i3cheese/Library/texlive/2022basic/texmf-var/fonts/pk/ljfour/lh/lh-t2a/larm2074.600pk" 1663057629 50524 b4eba3dfbdb10481f6fac00bd13197a8 ""
   "/Users/i3cheese/Library/texlive/2022basic/texmf-var/fonts/tfm/lh/lh-t2a/larm1200.tfm" 1662627662 3240 c2435f2b5cd66d4930bc29b8df87967e ""
   "/Users/i3cheese/Library/texlive/2022basic/texmf-var/fonts/tfm/lh/lh-t2a/larm1440.tfm" 1662627663 3256 3daaa33cf35cf3f354983aa3214ecd7f ""
   "/Users/i3cheese/Library/texlive/2022basic/texmf-var/fonts/tfm/lh/lh-t2a/larm2074.tfm" 1663057628 3264 03c2b9e4787a40d3b9c197c38b93b558 ""
-  "/Users/i3cheese/dots/templates/template.tex" 1669155936 2898 3a33441f7f92d1bfe4a0da1beb2cfb09 ""
+  "/Users/i3cheese/dots/templates/template.tex" 1681649443 3051 3b320216d57e7d4bef9b6b4634f44be5 ""
   "/usr/local/texlive/2022basic/texmf-dist/fonts/tfm/public/cm/cmr12.tfm" 1136768653 1288 655e228510b4c2a1abe905c368440826 ""
   "/usr/local/texlive/2022basic/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1461363279 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2022basic/texmf-dist/tex/generic/babel-english/english.ldf" 1496785618 7008 9ff5fdcc865b01beca2b0fe4a46231d4 ""
@@ -125,8 +124,8 @@
   "/usr/local/texlive/2022basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1665312218 136733 052c31b8080f32e76dc08b068533ed01 ""
   "/usr/local/texlive/2022basic/texmf-var/web2c/pdftex/pdflatex.fmt" 1662627628 2392957 28afda442a11dcb440b91ee1b98da99f ""
   "/usr/local/texlive/2022basic/texmf.cnf" 1647274000 628 5a32b7ea7dd5bed632a871bee125276d ""
-  "template.aux" 1669155936 132 4a260024c72d45b6eba469fdd16bf7b8 "pdflatex"
-  "template.tex" 1669155936 2898 3a33441f7f92d1bfe4a0da1beb2cfb09 ""
+  "template.aux" 1681649444 132 4a260024c72d45b6eba469fdd16bf7b8 "pdflatex"
+  "template.tex" 1681649443 3051 3b320216d57e7d4bef9b6b4634f44be5 ""
   (generated)
   "template.aux"
   "template.log"

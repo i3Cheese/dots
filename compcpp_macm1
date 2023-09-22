@@ -7,7 +7,6 @@ filename="${1%.*}"
 clang++ -o "$filename" "$filename.cpp" \
 	-std=c++20 \
     -ggdb \
-    -O2 \
 	-Wall -Wextra -Wformat=2 -Wshadow -Wfloat-equal -Wconversion \
 	-Wcast-qual -Wcast-align \
 	-fsanitize=address,bounds,undefined \

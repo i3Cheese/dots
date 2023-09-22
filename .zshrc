@@ -98,6 +98,7 @@ fi
 #
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+export POETRY_VIRTUALENVS_IN_PROJECT=true
 # pyenv python virtualenvs
 if [ -d $HOME/.pyenv ]; then
     export PYENV_ROOT="$HOME/.pyenv"
@@ -146,3 +147,40 @@ export NNN_FIFO="/tmp/nnn.fifo"
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 
 alias cmake_p='cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -B ./build .'
+eval "$(direnv hook zsh)"
+
+
+# save screenshot
+function pss () {
+    folder=$(pwd)
+    filename="Screenshot $(date +%Y-%m-%d\ at\ %H.%M.%S).png"
+
+    if [ $# -ne 0 ]; then
+        arg="$1"
+        if [[ -d $arg ]]; then
+            folder=$arg
+        else
+            a=$(dirname "$arg")
+            b=$(basename "$arg" .png)
+
+            if [ "$b" != "" ]; then filename=$b.png; fi
+
+            if [ "$a" != "." ]; then folder=$a; fi
+        fi
+    fi
+    real_folder=$(realpath -q "$folder")
+    if [ -n "$real_folder" ]; then
+    else
+        echo "Bad folder $folder"
+        return 1
+    fi
+    folder="$real_folder"
+    echo "Saving to folder $folder file $filename"
+
+    osascript -e "tell application \"System Events\" to ¬
+            write (the clipboard as «class PNGf») to ¬
+            (make new file at folder \"$folder\" ¬
+            with properties {name:\"$filename\"})" || (echo "fail" && return 1)
+}
+
+export DOCKER_DEFAULT_PLATFORM=linux/amd64

@@ -14,7 +14,7 @@ git clone git@github.com:i3Cheese/dots.git || exit 1
 
 ~/dots/build/tmux.sh
 ~/dots/build/zsh.sh
-~/dots/build/nvim.sh
-~/dots/build/nnn.sh
+# ~/dots/build/nvim.sh
+# ~/dots/build/nnn.sh
 
 sudo apt-get install ripgrep
