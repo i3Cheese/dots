@@ -1,3 +1,4 @@
+sudo apt-get install -y git
 ssh-keygen -f ~/.ssh/github_id_rsa -N "" || exit 1
 
 cat ~/.ssh/github_id_rsa.pub || exit 1
