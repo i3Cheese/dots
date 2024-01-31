@@ -128,7 +128,7 @@ autoload -Uz compinit && compinit
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
 # kitty
-alias ssh="kitty +kitten ssh"
+alias kssh="kitty +kitten ssh"
 
 # custom aliases
 function mkcd () {
