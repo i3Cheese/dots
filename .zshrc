@@ -147,7 +147,8 @@ export NNN_FIFO="/tmp/nnn.fifo"
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 
 alias cmake_p='cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -B ./build .'
-eval "$(direnv hook zsh)"
+
+which direnv >/dev/null && eval "$(direnv hook zsh)"
 
 
 # save screenshot
