@@ -149,7 +149,12 @@ export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 alias cmake_p='cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -B ./build .'
 
 which direnv >/dev/null && eval "$(direnv hook zsh)"
+which xdg-open >/dev/null && alias open=xdg-open
+which pbcopy >/dev/null && alias copy=pbcopy
+which xclip >/dev/null && alias copy="xclip -selection clipboard -i"
 
+addToPath ~/local/bin/
+addToPath ~/.local/bin/
 
 # save screenshot
 function pss () {
@@ -185,3 +190,11 @@ function pss () {
 }
 
 export DOCKER_DEFAULT_PLATFORM=linux/amd64
+
+# pnpm
+export PNPM_HOME="/home/deck/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
