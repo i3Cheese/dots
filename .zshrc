@@ -181,12 +181,28 @@ function pss () {
         return 1
     fi
     folder="$real_folder"
-    echo "Saving to folder $folder file $filename"
+    # linux
+    if [ -x "$(command -v xclip)" ]; then
+        (xclip -selection clipboard -t TARGETS -o | grep -q image/png) || (echo "No image in clipboard" && return 1) || return 1
+        echo "Saving to folder $folder file $filename"
+        xclip -selection clipboard -t image/png -o > "$folder/$filename" || (echo "fail" && return 1) || return 1
+        return 0
+    else
+        echo "No xclip"
+    fi
 
-    osascript -e "tell application \"System Events\" to ¬
+    # mac
+    if [ -x "$(command -v osascript)" ]; then
+        echo "Saving to folder $folder file $filename"
+        osascript -e "tell application \"System Events\" to ¬
             write (the clipboard as «class PNGf») to ¬
             (make new file at folder \"$folder\" ¬
-            with properties {name:\"$filename\"})" || (echo "fail" && return 1)
+            with properties {name:\"$filename\"})" || (echo "fail" && return 1) || return 1
+        return 0
+    else
+        echo "No pbpaste"
+    fi
+    
 }
 
 export DOCKER_DEFAULT_PLATFORM=linux/amd64
@@ -198,3 +214,12 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+#
+addToPath "$HOME/go/bin"
+
+# bun completions
+[ -s "/home/deck/.bun/_bun" ] && source "/home/deck/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
