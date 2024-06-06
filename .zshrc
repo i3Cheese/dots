@@ -14,6 +14,7 @@ function addToPathOnce {
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+ZSH_CUSTOM="$HOME/dots/oh_my_zsh_custom/"
 
 alias docker-compose="docker compose"
 
@@ -207,6 +208,8 @@ function pss () {
 
 export DOCKER_DEFAULT_PLATFORM=linux/amd64
 
+addToPath "$HOME/go/bin"
+
 # pnpm
 export PNPM_HOME="/home/deck/.local/share/pnpm"
 case ":$PATH:" in
@@ -214,11 +217,9 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
-#
-addToPath "$HOME/go/bin"
 
 # bun completions
-[ -s "/home/deck/.bun/_bun" ] && source "/home/deck/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
