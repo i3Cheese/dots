@@ -1,0 +1,11 @@
+[user]
+	name = i3cheese
+	email = i3cheese@yandex.ru
+[core]
+	autocrlf = input
+[init]
+	defaultBranch = main
+[push]
+	autoSetupRemote = true
+[alias]
+    undo = reset --soft HEAD^

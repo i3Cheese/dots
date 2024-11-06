@@ -6,11 +6,11 @@ filename="${1%.*}"
 
 clang++ -o "$filename" "$filename.cpp" \
 	-std=c++20 \
-    -ggdb \
 	-Wall -Wextra -Wformat=2 -Wshadow -Wfloat-equal -Wconversion \
 	-Wcast-qual -Wcast-align \
-	-fsanitize=address,bounds,undefined \
 	-pedantic \
 	-D LOCAL || exit $?
+	# -fsanitize=address,bounds,undefined \
+
 
 echo $filename

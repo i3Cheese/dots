@@ -72,7 +72,8 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git fzf fancy-ctrl-z sudo colored-man-pages copypath)
+REPORTTIME=5
+plugins=(git fzf fancy-ctrl-z sudo colored-man-pages copypath cmd-time)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -205,8 +206,6 @@ function pss () {
     fi
     
 }
-
-export DOCKER_DEFAULT_PLATFORM=linux/amd64
 
 addToPath "$HOME/go/bin"
 
