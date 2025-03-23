@@ -1,3 +1,4 @@
+# /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/i3Cheese/dots/refs/heads/main/first-init-linux.sh)"
 sudo apt-get install -y git
 ssh-keygen -f ~/.ssh/github_id_rsa -N "" || exit 1
 
