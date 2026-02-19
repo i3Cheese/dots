@@ -1,3 +1,4 @@
+fpath+=~/.zfunc
 function addToPath {
     export PATH="$1:$PATH"
 }
@@ -11,6 +12,7 @@ function addToPathOnce {
         export PATH="$1:$PATH"
     fi
 }
+export PATH="/usr/local/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -18,7 +20,7 @@ ZSH_CUSTOM="$HOME/dots/oh_my_zsh_custom/"
 
 alias docker-compose="docker compose"
 
-ZSH_THEME="candy"
+ZSH_THEME="agnoster_arc_support"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -43,7 +45,7 @@ zstyle ':omz:update' mode disabled  # disable automatic updates
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # You can also set it to another string to have that shown instead of the default red dots.
@@ -153,6 +155,7 @@ which direnv >/dev/null && eval "$(direnv hook zsh)"
 which xdg-open >/dev/null && alias open=xdg-open
 which pbcopy >/dev/null && alias copy=pbcopy
 which xclip >/dev/null && alias copy="xclip -selection clipboard -i"
+which zoxide >/dev/null && eval "$(zoxide init zsh)"
 
 addToPath ~/local/bin/
 addToPath ~/.local/bin/
@@ -224,3 +227,12 @@ esac
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+. "$HOME/.local/bin/env"
+
+# The next line updates PATH for CLI.
+if [ -f '/Users/dssotnikov/yandex-cloud/path.bash.inc' ]; then source '/Users/dssotnikov/yandex-cloud/path.bash.inc'; fi
+
+# The next line enables shell command completion for yc.
+if [ -f '/Users/dssotnikov/yandex-cloud/completion.zsh.inc' ]; then source '/Users/dssotnikov/yandex-cloud/completion.zsh.inc'; fi
+
