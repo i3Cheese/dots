@@ -1,8 +1,8 @@
 # symbolic lincs
 ln -s ~/dots/.zshrc ~/.zshrc
 ln -s ~/dots/.gitconfig ~/.gitconfig
-
 ln -s ~/dots/kitty.conf ~/.config/kitty/ 
+ln -s ~/dots/config/ghostty ~/.config/ghostty
 # TODO: add install brew and oh-my-zsh
 
 
