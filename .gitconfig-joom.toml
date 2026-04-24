@@ -1,0 +1,5 @@
+[user]
+	name = dssotnikov-joom
+	email = dssotnikov@joom.com
+[url "git@github.com:joomcode/"]
+	insteadof = https://github.com/joomcode/

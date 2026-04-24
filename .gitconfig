@@ -1,6 +1,6 @@
 [user]
 	name = i3cheese
-	email = i3cheese@yandex.ru
+	email = yo@i3cheese.me
 [core]
 	autocrlf = input
 [init]
@@ -9,3 +9,5 @@
 	autoSetupRemote = true
 [alias]
     undo = reset --soft HEAD^
+[includeIf "gitdir:~/joomcode/"]
+    path = ~/dots/.gitconfig-joom.toml

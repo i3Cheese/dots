@@ -43,7 +43,7 @@ zstyle ':omz:update' mode disabled  # disable automatic updates
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="false"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # You can also set it to another string to have that shown instead of the default red dots.
@@ -73,7 +73,7 @@ ENABLE_CORRECTION="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 REPORTTIME=5
-plugins=(git fzf fancy-ctrl-z sudo colored-man-pages copypath cmd-time)
+plugins=(git fzf fancy-ctrl-z sudo colored-man-pages)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -84,10 +84,12 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='nvim'
+if [[ -z "$EDITOR" ]]; then
+    if [[ -n $SSH_CONNECTION ]]; then
+        export EDITOR='vim'
+    else
+        export EDITOR='nvim'
+    fi
 fi
 
 # Compilation flags
@@ -109,28 +111,7 @@ if [ -d $HOME/.pyenv ]; then
     alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 fi
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/i3cheese/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/i3cheese/miniforge3/etc/profile.d/conda.sh" ]; then
-        . "/Users/i3cheese/miniforge3/etc/profile.d/conda.sh"
-    else
-        addToPathOnce "/Users/i3cheese/miniforge3/bin"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
 autoload -Uz compinit && compinit
-
-# Generated for envman. Do not edit.
-[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
-
-# kitty
-alias kssh="kitty +kitten ssh"
 
 # custom aliases
 function mkcd () {
@@ -141,12 +122,9 @@ function mkcd () {
 # NNN config
 export NNN_PLUG="x:!chmod +x $nnn;p:preview-tui;t:tex-new;u:upload"
 export NNN_FIFO="/tmp/nnn.fifo"
-#
-# # homebrew packages to PATH
-# addToPath "/opt/homebrew/opt/llvm/bin"
-# addToPath "/opt/homebrew/opt/identify/bin"
 
-export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+# homebrew packages to PATH
+addToPath "/opt/homebrew/opt/llvm/bin"
 
 alias cmake_p='cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -B ./build .'
 
@@ -207,7 +185,8 @@ function pss () {
     
 }
 
-addToPath "$HOME/go/bin"
+export GOPATH="$HOME/go"
+addToPath "$GOPATH/bin"
 
 # pnpm
 export PNPM_HOME="/home/deck/.local/share/pnpm"
