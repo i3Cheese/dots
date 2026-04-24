@@ -12,6 +12,9 @@ function addToPathOnce {
     fi
 }
 
+bindkey "^[D" backward-word
+bindkey "^[C" forward-word
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_CUSTOM="$HOME/dots/oh_my_zsh_custom/"
@@ -106,7 +109,7 @@ export POETRY_VIRTUALENVS_IN_PROJECT=true
 # pyenv python virtualenvs
 if [ -d $HOME/.pyenv ]; then
     export PYENV_ROOT="$HOME/.pyenv"
-    command -v "pyenv >/dev/null" || addToPathOnce "$PYENV_ROOT/bin"
+    command -v pyenv >/dev/null || addToPathOnce "$PYENV_ROOT/bin"
     doOnce eval "$(pyenv init -)"
     alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 fi
@@ -202,3 +205,23 @@ esac
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Homebrew completion (optimized)
+if [[ -d /opt/homebrew ]]; then
+  BREW_PREFIX="/opt/homebrew"
+elif [[ -d /usr/local ]]; then
+  BREW_PREFIX="/usr/local"
+else
+  BREW_PREFIX="$(brew --prefix)"
+fi
+
+if [ -f "$BREW_PREFIX/etc/zsh_completion" ]; then
+  . "$BREW_PREFIX/etc/zsh_completion"
+fi
+
+# # The next line updates PATH for CLI.
+# if [ -f '/Users/i3cheese/yandex-cloud/path.bash.inc' ]; then source '/Users/i3cheese/yandex-cloud/path.bash.inc'; fi
+
+# # The next line enables shell command completion for yc.
+# if [ -f '/Users/i3cheese/yandex-cloud/completion.zsh.inc' ]; then source '/Users/i3cheese/yandex-cloud/completion.zsh.inc'; fi
+
