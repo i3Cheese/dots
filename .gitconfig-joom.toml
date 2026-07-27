@@ -3,3 +3,5 @@
 	email = dssotnikov@joom.com
 [url "git@github.com:joomcode/"]
 	insteadof = https://github.com/joomcode/
+[url "ssh://git@github.com/joomcode/"]
+	insteadOf = https://github.com/joomcode/
