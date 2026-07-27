@@ -77,7 +77,7 @@ ENABLE_CORRECTION="false"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 REPORTTIME=5
-plugins=(git fzf fancy-ctrl-z sudo colored-man-pages)
+plugins=(git fzf fancy-ctrl-z colored-man-pages)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -174,18 +174,3 @@ function pss () {
 
 export GOPATH="$HOME/go"
 addToPath "$GOPATH/bin"
-
-# pnpm
-export PNPM_HOME="/home/deck/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-
-# bun completions
-[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
