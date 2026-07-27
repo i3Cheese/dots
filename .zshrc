@@ -12,6 +12,10 @@ function addToPathOnce {
     fi
 }
 
+addToPath "/opt/homebrew/opt/llvm/bin"
+addToPath ~/local/bin/
+addToPath ~/.local/bin/
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_CUSTOM="$HOME/dots/oh_my_zsh_custom/"
@@ -102,39 +106,22 @@ fi
 #
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export POETRY_VIRTUALENVS_IN_PROJECT=true
-# pyenv python virtualenvs
-if [ -d $HOME/.pyenv ]; then
-    export PYENV_ROOT="$HOME/.pyenv"
-    command -v "pyenv >/dev/null" || addToPathOnce "$PYENV_ROOT/bin"
-    doOnce eval "$(pyenv init -)"
-    alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
-fi
-
-autoload -Uz compinit && compinit
-
 # custom aliases
+alias cmake_p='cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -B ./build .'
 function mkcd () {
   mkdir -p -- "$1" && cd -P -- "$1"
 }
-
 
 # NNN config
 export NNN_PLUG="x:!chmod +x $nnn;p:preview-tui;t:tex-new;u:upload"
 export NNN_FIFO="/tmp/nnn.fifo"
 
-# homebrew packages to PATH
-addToPath "/opt/homebrew/opt/llvm/bin"
-
-alias cmake_p='cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -B ./build .'
 
 which direnv >/dev/null && eval "$(direnv hook zsh)"
 which xdg-open >/dev/null && alias open=xdg-open
 which pbcopy >/dev/null && alias copy=pbcopy
 which xclip >/dev/null && alias copy="xclip -selection clipboard -i"
 
-addToPath ~/local/bin/
-addToPath ~/.local/bin/
 
 # save screenshot
 function pss () {
