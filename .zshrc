@@ -117,10 +117,10 @@ export NNN_PLUG="x:!chmod +x $nnn;p:preview-tui;t:tex-new;u:upload"
 export NNN_FIFO="/tmp/nnn.fifo"
 
 
-which direnv >/dev/null && eval "$(direnv hook zsh)"
-which xdg-open >/dev/null && alias open=xdg-open
-which pbcopy >/dev/null && alias copy=pbcopy
-which xclip >/dev/null && alias copy="xclip -selection clipboard -i"
+(( $+commands[direnv] )) && eval "$(direnv hook zsh)"
+(( $+commands[xdg-open] )) && alias open=xdg-open
+(( $+commands[pbcopy] )) && alias copy=pbcopy
+(( $+commands[xclip] )) && alias copy="xclip -selection clipboard -i"
 
 
 # save screenshot
