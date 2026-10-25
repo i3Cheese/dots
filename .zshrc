@@ -15,6 +15,10 @@ function addToPathOnce {
 bindkey "^[D" backward-word
 bindkey "^[C" forward-word
 
+addToPath "/opt/homebrew/opt/llvm/bin"
+addToPath ~/local/bin/
+addToPath ~/.local/bin/
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_CUSTOM="$HOME/dots/oh_my_zsh_custom/"
@@ -76,7 +80,7 @@ ENABLE_CORRECTION="false"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 REPORTTIME=5
-plugins=(git fzf fancy-ctrl-z sudo colored-man-pages web-search)
+plugins=(git fzf fancy-ctrl-z colored-man-pages web-search)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -105,39 +109,24 @@ fi
 #
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export POETRY_VIRTUALENVS_IN_PROJECT=true
-# pyenv python virtualenvs
-if [ -d $HOME/.pyenv ]; then
-    export PYENV_ROOT="$HOME/.pyenv"
-    command -v pyenv >/dev/null || addToPathOnce "$PYENV_ROOT/bin"
-    doOnce eval "$(pyenv init -)"
-    alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
-fi
-
 autoload -Uz compinit && compinit
 
 # custom aliases
+alias cmake_p='cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -B ./build .'
 function mkcd () {
   mkdir -p -- "$1" && cd -P -- "$1"
 }
-
 
 # NNN config
 export NNN_PLUG="x:!chmod +x $nnn;p:preview-tui;t:tex-new;u:upload"
 export NNN_FIFO="/tmp/nnn.fifo"
 
-# homebrew packages to PATH
-addToPath "/opt/homebrew/opt/llvm/bin"
 
-alias cmake_p='cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -B ./build .'
+(( $+commands[direnv] )) && eval "$(direnv hook zsh)"
+(( $+commands[xdg-open] )) && alias open=xdg-open
+(( $+commands[pbcopy] )) && alias copy=pbcopy
+(( $+commands[xclip] )) && alias copy="xclip -selection clipboard -i"
 
-which direnv >/dev/null && eval "$(direnv hook zsh)"
-which xdg-open >/dev/null && alias open=xdg-open
-which pbcopy >/dev/null && alias copy=pbcopy
-which xclip >/dev/null && alias copy="xclip -selection clipboard -i"
-
-addToPath ~/local/bin/
-addToPath ~/.local/bin/
 
 # save screenshot
 function pss () {
@@ -190,38 +179,3 @@ function pss () {
 
 export GOPATH="$HOME/go"
 addToPath "$GOPATH/bin"
-
-# pnpm
-export PNPM_HOME="/home/deck/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-
-# bun completions
-[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-# Homebrew completion (optimized)
-if [[ -d /opt/homebrew ]]; then
-  BREW_PREFIX="/opt/homebrew"
-elif [[ -d /usr/local ]]; then
-  BREW_PREFIX="/usr/local"
-else
-  BREW_PREFIX="$(brew --prefix)"
-fi
-
-if [ -f "$BREW_PREFIX/etc/zsh_completion" ]; then
-  . "$BREW_PREFIX/etc/zsh_completion"
-fi
-
-# # The next line updates PATH for CLI.
-# if [ -f '/Users/i3cheese/yandex-cloud/path.bash.inc' ]; then source '/Users/i3cheese/yandex-cloud/path.bash.inc'; fi
-
-# # The next line enables shell command completion for yc.
-# if [ -f '/Users/i3cheese/yandex-cloud/completion.zsh.inc' ]; then source '/Users/i3cheese/yandex-cloud/completion.zsh.inc'; fi
-
