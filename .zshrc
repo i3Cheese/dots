@@ -76,7 +76,7 @@ ENABLE_CORRECTION="false"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 REPORTTIME=5
-plugins=(git fzf fancy-ctrl-z sudo colored-man-pages)
+plugins=(git fzf fancy-ctrl-z sudo colored-man-pages web-search)
 
 source $ZSH/oh-my-zsh.sh
 
