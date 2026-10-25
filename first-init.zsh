@@ -15,6 +15,7 @@ brew install tmux
 ln -s ~/dots/.tmux.conf ~/
 
 brew install neovim
+brew install tree-sitter-cli
 brew install git 
 brew install gfold
 brew install diff-so-fancy
